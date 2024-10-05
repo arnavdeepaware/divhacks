@@ -1,25 +1,22 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-const UserSchema = new Schema({
+// Define User Schema
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
-        trim: true,
-        minlength: 3
+        unique: true
     },
     roadmaps: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Roadmap' // References the Roadmap model
+            ref: 'Roadmap'
         }
     ],
     skillsets: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Skillset' // References the Skillset model
+            ref: 'Skillset'
         }
     ],
     careerpath: {
@@ -30,23 +27,10 @@ const UserSchema = new Schema({
         type: [String],
         default: []
     }
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     unique: true,
-    //     trim: true,
-    // },
-    // password: {
-    //     type: String,
-    //     required: true,
-    //     trim:true,
-    // }
-}, {
-    timestamps: true,
-});
+}, { timestamps: true });
 
-// Ensure the roadmaps array only contains unique ObjectId references
-userSchema.index({ roadmaps: 1 }, { unique: true });
+// Ensure roadmaps is an empty array by default
+userSchema.path('roadmaps').default([]); 
 
 const User = mongoose.model('User', userSchema);
 
