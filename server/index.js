@@ -23,13 +23,12 @@ connection.once('open', () => {
 const usersRouter = require('./routes/users');
 // const roadmaps_sRouter = require('./routes/roadmaps-s');
 const roadmap_sRouter = require('./routes/roadmapSmall');
-console.log(roadmap_sRouter);
 
 // const skillsetsRouter = require('./routes/skillsets');
 
 app.use('/users', usersRouter);
 // app.use('/roadmaps-s', roadmaps_sRouter);
-app.use('/roadmapSmall', roadmap_sRouter);
+app.use('/roadmaps', roadmap_sRouter);
 // app.use('/skillsets', skillsetsRouter);
 
 app.listen(port, () => {

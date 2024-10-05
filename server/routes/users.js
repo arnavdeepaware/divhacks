@@ -53,5 +53,47 @@ router.route('/update/:id').patch((req, res) => {
         })
 })
 
+// GET request to fetch all roadmaps associated with the user
+router.route('/:userId/roadmaps').get((req, res) => {
+    const userId = req.params.userId;
+
+    User.findById(userId)
+        .populate('roadmaps')  // Populate roadmaps with full roadmap data
+        .then(user => {
+            if (!user) {
+                return res.status(404).json('User not found');
+            }
+            res.json(user.roadmaps);
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//DELETE request to remove an associated roadmap
+router.route('/:userId/roadmaps/:roadmapId').delete((req, res) => {
+    const userId = req.params.userId;
+    const roadmapId = req.params.roadmapId;
+
+    User.findById(userId)
+        .then(user => {
+            if (!user) {
+                return res.status(404).json('User not found');
+            }
+
+            // Remove the roadmap from user's roadmaps array
+            user.roadmaps.pull(roadmapId);
+
+            // Save the updated user
+            user.save()
+                .then(() => {
+                    // Optionally, you can also delete the roadmap from the Roadmap collection
+                    Roadmap.findByIdAndDelete(roadmapId)
+                        .then(() => res.json('Roadmap removed and deleted!'))
+                        .catch(err => res.status(400).json('Error deleting roadmap: ' + err));
+                })
+                .catch(err => res.status(400).json('Error updating user: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 module.exports = router;

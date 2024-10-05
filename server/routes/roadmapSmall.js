@@ -3,40 +3,36 @@ const router = require('express').Router();
 let Roadmap = require('../models/roadmap.model');
 let User = require('../models/user.model');
 
-// Create a new roadmap and associate it with a user
-router.route('/add/:userId').post((req, res) => {
-    const { skill, timeBy, frequency, instructions } = req.body;
-    const userId = req.params.userId;
+// Add roadmap and associate it with a user
+router.post('/add/:userId', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const { skill, timeBy, frequency, instructions } = req.body;
 
-    // Create a new roadmap
-    const newRoadmap = new Roadmap({
-        skill,
-        timeBy,
-        frequency,
-        instructions
-    });
+        // Create a new roadmap
+        const newRoadmap = new Roadmap({
+            skill,
+            timeBy,
+            frequency,
+            instructions
+        });
 
-    // Save the roadmap to the database
-    newRoadmap.save()
-        .then((savedRoadmap) => {
-            // After saving the roadmap, find the user and update their roadmaps array
-            User.findById(userId)
-                .then(user => {
-                    if (!user) {
-                        return res.status(404).json('User not found');
-                    }
+        // Save the new roadmap
+        const savedRoadmap = await newRoadmap.save();
 
-                    // Add the newly created roadmap's ID to the user's roadmaps array
-                    user.roadmaps.push(savedRoadmap._id);
+        // Find the user and associate the new roadmap with the user
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json('User not found');
+        }
 
-                    // Save the updated user
-                    user.save()
-                        .then(() => res.json('Roadmap added and associated with user!'))
-                        .catch(err => res.status(400).json('Error updating user: ' + err));
-                })
-                .catch(err => res.status(400).json('Error: ' + err));
-        })
-        .catch(err => res.status(400).json('Error creating roadmap: ' + err));
+        user.roadmaps.push(savedRoadmap._id);
+        await user.save();
+
+        res.status(200).json('Roadmap added and associated with user successfully!');
+    } catch (err) {
+        res.status(400).json('Error: ' + err);
+    }
 });
 
 // Get all roadmaps
