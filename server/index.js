@@ -18,6 +18,16 @@ connection.once('open', () => {
     console.log("Mongo DB database connection successfully established");
 })
 
+const usersRouter = require('./routes/users');
+const roadmaps_sRouter = require('./routes/roadmaps-s');
+const roadmap_sRouter = require('./routes/roadmap-s');
+const skillsetsRouter = require('./routes/skillsets');
+
+app.use('/users', usersRouter);
+app.use('/roadmaps-s', roadmaps_sRouter);
+app.use('/roadmap-s', roadmap_sRouter);
+ap.use('/skillsets', skillsetsRouter);
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
