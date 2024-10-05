@@ -5,7 +5,9 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true,
+        minlength: 2
     },
     roadmaps: [
         {
@@ -13,12 +15,10 @@ const userSchema = new mongoose.Schema({
             ref: 'Roadmap'
         }
     ],
-    skillsets: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Skillset'
-        }
-    ],
+    skillsets: {
+        type: [String],
+        default: []
+    },
     careerpath: {
         type: String,
         default: ""
