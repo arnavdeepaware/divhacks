@@ -16,6 +16,15 @@ import Projects from "layouts/dashboard/components/Projects";
 import MDTypography from "components/MDTypography"; // Ensure this path is correct
 import Skills from "./skill/skills"; // Adjust this path if needed
 
+//User ID
+// Assuming you have the user ID (retrieved from login or another API)
+const userId = "6701c7ebd50e34892d86e167"; // Example user ID
+
+// Or store in sessionStorage if you only need it for the session
+sessionStorage.setItem("userId", userId);
+
+
+
 function Dashboard() {
   const navigate = useNavigate(); // Initialize navigate
   const [open, setOpen] = useState(false);
