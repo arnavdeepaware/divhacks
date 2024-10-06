@@ -95,5 +95,19 @@ router.route('/:userId/roadmaps/:roadmapId').delete((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//GET request to retireve all skillsets of a user
+router.route('/skillset/:userId').get((req, res) => {
+    const userId = req.params.userId;
+
+    User.findById(userId)
+        .then(user => {
+            if (!user) {
+                return res.status(404).json('User not found');
+            }
+            res.json(user.skillsets);
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+
 
 module.exports = router;
