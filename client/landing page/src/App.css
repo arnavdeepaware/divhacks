@@ -6,11 +6,11 @@
 }
 
 body {
-  font-family: 'Lora', serif; 
+  font-family: "Lora", serif;
 }
 
 .App {
-  background: linear-gradient(135deg, #1A1A2E, #004D4D);
+  background: linear-gradient(135deg, #1a1a2e, #004d4d);
   color: #f8f8f8;
   min-height: 100vh; /* Full height of the viewport */
   display: flex;
@@ -90,12 +90,10 @@ body {
   text-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.1);
 }
 
-
-
 /* Content Styles */
 .Content {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   flex: 1; /* Allow the Content to take the remaining height */
   padding: 10px; /* Reduced padding */
@@ -103,36 +101,36 @@ body {
 }
 
 .Text-section {
-  max-width: 600px; 
+  max-width: 600px;
   background: rgba(0, 128, 128, 0.8);
   padding: 30px; /* Reduced padding */
-  border-radius: 15px; 
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3); 
-  text-align: center; 
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .Description {
-  font-size: 1.5rem; 
-  margin: 1.5rem 0; 
-  color: #e0f7fa; 
-  line-height: 1.6; 
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  color: #e0f7fa;
+  line-height: 1.6;
 }
 
 .Login-button {
-  padding: 1rem 2rem; 
-  font-size: 1.3rem; 
-  margin-top: 1rem; 
-  color: #fff; 
-  background-color: #0ea5aa; 
-  border: none; 
-  border-radius: 30px; 
-  transition: background-color 0.3s, transform 0.3s; 
-  cursor: pointer; 
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: #0ea5aa;
+  border: none;
+  border-radius: 30px;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
 }
 
 .Login-button:hover {
-  background-color: #005f5f; 
-  transform: scale(1.05); 
+  background-color: #005f5f;
+  transform: scale(1.05);
 }
 
 /* Image Section */

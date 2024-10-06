@@ -4,7 +4,6 @@
 // import { doc, setDoc } from "firebase/firestore"; // Import Firestore functions
 // import { db } from './firebaseConfig'; // Import Firestore instance
 
-
 // // Function to log in users with email and password
 // export const logIn = async (email: string, password: string) => {
 //   try {
@@ -36,14 +35,14 @@
 //     try {
 //       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 //       const user = userCredential.user;
-  
+
 //       // Save user data to Firestore
 //       await setDoc(doc(db, "users", user.uid), {
 //         email: user.email,
 //         createdAt: new Date(),
 //         // Add other user details as needed
 //       });
-  
+
 //       console.log("User signed up and data saved: ", user);
 //       return user;
 //     } catch (error) {

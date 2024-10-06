@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import myGif from './assets/images/abc.gif';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import myGif from "./assets/images/abc.gif";
 
 // Landing page component
 const LandingPage: React.FC = () => {
@@ -21,19 +21,14 @@ const LandingPage: React.FC = () => {
       <div className="Content">
         <div className="Text-section">
           <p className="Description">
-            Pro Grow is an AI-driven platform that tracks your learning progress and helps you reach your educational goals. Join us to unlock your full potential with personalized skill-building roadmaps.
+            Pro Grow is an AI-driven platform that tracks your learning progress and helps you reach
+            your educational goals. Join us to unlock your full potential with personalized
+            skill-building roadmaps.
           </p>
-          <button className="Login-button">
-            Click Here to Login or Sign Up
-          </button>
+          <button className="Login-button">Click Here to Login or Sign Up</button>
         </div>
         <div className="Image-section">
-          <img
-            src={myGif}
-            alt="AI Education"
-            className="Illustration"
-            width="300"
-          />
+          <img src={myGif} alt="AI Education" className="Illustration" width="300" />
         </div>
       </div>
     </div>

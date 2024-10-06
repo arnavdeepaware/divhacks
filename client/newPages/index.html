@@ -1,36 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Skill Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1 id="page-title">Learn X in Y</h1>
-        <div class="boxes">
-            <div class="box">
-                <h2>Steps to Learn</h2>
-                <div id="steps-content">
-                    <!-- Content from API goes here -->
-                </div>
-            </div>
-            <div class="box">
-                <h2>To-Do</h2>
-                <div id="todo-content">
-                    <!-- Content from API goes here -->
-                </div>
-            </div>
-            <div class="box">
-                <h2>Resources</h2>
-                <div id="resources-content">
-                    <!-- Content from API goes here -->
-                </div>
-            </div>
-        </div>
+<div class="container">
+  <!-- Left Sidebar: Reminders Widgets -->
+  <div class="reminder-widgets">
+    <h3>Reminders</h3>
+    <div id="reminderList" class="reminder-list"></div>
+  </div>
+
+  <!-- Center Section: Skill Input Form -->
+  <div class="skill-form">
+    <h2>What Skill Do you Want to Learn?</h2>
+    <div class="form-group">
+      <label for="skillInput">Skill:</label>
+      <input type="text" id="skillInput" placeholder="Enter a skill" required />
     </div>
-    
-    <script src="script2.js"></script> <!-- Ensure this is the correct path -->
-</body>
-</html>
+    <div class="form-group">
+      <label for="deadlineInput">Deadline:</label>
+      <input type="date" id="deadlineInput" required />
+    </div>
+    <div class="form-group">
+      <label for="timeInput">Time Commitment:</label>
+      <input type="number" id="timeInput" placeholder="Enter time value" required />
+      <select id="timeSelect">
+        <option value="days">Days</option>
+        <option value="weeks">Weeks</option>
+        <option value="months">Months</option>
+      </select>
+    </div>
+    <button id="addSkillBtn">Add Skill</button>
+
+    <div id="skillButtons" class="skill-buttons-container"></div>
+  </div>
+
+  <!-- Right Sidebar: Skills Status -->
+  <div class="skills-status">
+    <h3>Skills Status</h3>
+    <div class="skills-section">
+      <h4>Skills Gained</h4>
+      <ul id="skillsGained"></ul>
+    </div>
+    <div class="skills-section">
+      <h4>Skills In Progress</h4>
+      <ul id="skillsInProgress"></ul>
+    </div>
+  </div>
+</div>

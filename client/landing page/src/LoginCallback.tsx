@@ -1,5 +1,5 @@
-import React from 'react';
-import { LoginCallback } from '@okta/okta-react';
+import React from "react";
+import { LoginCallback } from "@okta/okta-react";
 
 const Callback: React.FC = () => {
   return <LoginCallback />;

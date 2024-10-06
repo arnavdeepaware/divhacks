@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pro Grow - Learn a Skill</title>
-    <link rel="stylesheet" href="homepage.css">
-</head>
-<body>
+    <link rel="stylesheet" href="homepage.css" />
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">Pro Grow</div>
-        <div class="username">Hello, Username</div>
+      <div class="logo">Pro Grow</div>
+      <div class="username">Hello, Username</div>
     </nav>
 
     <!-- Main Content -->
     <main>
-        <h1>What Skill Do You Want to Learn?</h1>
+      <h1>What Skill Do You Want to Learn?</h1>
 
-        <!-- Form to input skill details -->
-        <div class="search-panel">
-            <input type="text" id="skillInput" placeholder="Enter the skill..." class="search-input" required>
-            
-            <label for="deadlineInput">Deadline:</label>
-            <input type="date" id="deadlineInput" class="date-input" required>
-            
-            <label for="timeCommitmentInput">Time Commitment:</label>
-            <div class="time-commitment">
-                <input type="number" id="timeInput" placeholder="Number" required>
-                <select id="timeSelect" required>
-                    <option value="days">Days</option>
-                    <option value="weeks">Weeks</option>
-                    <option value="months">Months</option>
-                </select>
-            </div>
-            
-            <button id="addSkillBtn">Add Skill</button>
+      <!-- Form to input skill details -->
+      <div class="search-panel">
+        <input
+          type="text"
+          id="skillInput"
+          placeholder="Enter the skill..."
+          class="search-input"
+          required
+        />
 
-            <div class="skill-buttons" id="skillButtons">
-                <!-- Skill buttons will be added here dynamically -->
-            </div>
+        <label for="deadlineInput">Deadline:</label>
+        <input type="date" id="deadlineInput" class="date-input" required />
+
+        <label for="timeCommitmentInput">Time Commitment:</label>
+        <div class="time-commitment">
+          <input type="number" id="timeInput" placeholder="Number" required />
+          <select id="timeSelect" required>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+          </select>
         </div>
+
+        <button id="addSkillBtn">Add Skill</button>
+
+        <div class="skill-buttons" id="skillButtons">
+          <!-- Skill buttons will be added here dynamically -->
+        </div>
+      </div>
     </main>
 
     <script src="scripts.js"></script>
-</body>
+  </body>
 </html>

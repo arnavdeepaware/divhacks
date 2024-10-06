@@ -34,59 +34,66 @@ function Skills() {
   };
 
   return (
-    <MDBox ml={40} mt={6} mr={3}>
-      <Card sx={{ ml: 4 }}>
-        {" "}
-        {/* Added left margin to the Card */}
-        <MDBox display="flex" justifyContent="center" alignItems="flex-start" p={3}>
+    <MDBox mt={6} mr={9} ml={35}>
+      {" "}
+      {/* Added significant left margin */}
+      <Card sx={{ p: 3 }}>
+        <MDBox display="flex" justifyContent="center" alignItems="flex-start" mb={3}>
           {/* Title */}
-          <MDTypography variant="h5" gutterBottom>
-            AI Skill Selection
-          </MDTypography>
+          <MDTypography variant="h5">AI Skill Selection</MDTypography>
         </MDBox>
-        {/* Checkboxes for AI Skills */}
-        <MDBox p={3}>
-          <Grid container spacing={5}>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={selectedSkills.skill1}
-                    onChange={handleCheckboxChange}
-                    name="skill1"
-                  />
-                }
-                label="Skill 1: AI Content Recognition"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={selectedSkills.skill2}
-                    onChange={handleCheckboxChange}
-                    name="skill2"
-                  />
-                }
-                label="Skill 2: AI Data Analysis"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={selectedSkills.skill3}
-                    onChange={handleCheckboxChange}
-                    name="skill3"
-                  />
-                }
-                label="Skill 3: AI Decision Making"
-              />
-            </Grid>
+        {/* Main Layout */}
+        <Grid container spacing={3}>
+          {/* Left Section: Reminders */}
+          <Grid item xs={4}>
+            <MDBox mb={2}>
+              <MDTypography variant="h6">Reminders</MDTypography>
+              <MDBox>
+                <MDTypography variant="body1">Skill: AI Content Recognition</MDTypography>
+                <MDTypography variant="body2">Date: YYYY-MM-DD</MDTypography>
+              </MDBox>
+              <MDBox>
+                <MDTypography variant="body1">Skill: AI Data Analysis</MDTypography>
+                <MDTypography variant="body2">Date: YYYY-MM-DD</MDTypography>
+              </MDBox>
+              <MDBox>
+                <MDTypography variant="body1">Skill: AI Decision Making</MDTypography>
+                <MDTypography variant="body2">Date: YYYY-MM-DD</MDTypography>
+              </MDBox>
+            </MDBox>
           </Grid>
-        </MDBox>
+
+          {/* Center Section: Tutorials */}
+          <Grid item xs={4}>
+            <MDBox>
+              <MDTypography variant="h6">Tutorials / Guidance</MDTypography>
+              <MDBox p={2} sx={{ border: "1px solid #ccc", height: "200px" }}>
+                {/* Placeholder for AI-rendered content */}
+                <MDTypography variant="body1">Tutorials will be rendered here...</MDTypography>
+              </MDBox>
+            </MDBox>
+          </Grid>
+
+          {/* Right Section: Skills */}
+          <Grid item xs={4}>
+            <MDBox>
+              <MDTypography variant="h6">Skills</MDTypography>
+              <MDBox>
+                <Card sx={{ mb: 1 }}>
+                  <MDTypography variant="body1">Skill 1: AI Content Recognition</MDTypography>
+                </Card>
+                <Card sx={{ mb: 1 }}>
+                  <MDTypography variant="body1">Skill 2: AI Data Analysis</MDTypography>
+                </Card>
+                <Card sx={{ mb: 1 }}>
+                  <MDTypography variant="body1">Skill 3: AI Decision Making</MDTypography>
+                </Card>
+              </MDBox>
+            </MDBox>
+          </Grid>
+        </Grid>
         {/* Back Button */}
-        <MDBox display="flex" justifyContent="center" mb={4}>
+        <MDBox display="flex" justifyContent="center" mb={4} mt={4}>
           <Button variant="contained" color="primary" onClick={handleBackClick}>
             Back
           </Button>

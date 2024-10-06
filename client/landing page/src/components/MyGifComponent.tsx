@@ -1,6 +1,6 @@
 // src/components/MyVideoComponent.tsx
-import React from 'react';
-import myGif from '../assets/images/abc.gif'; // Adjust the path based on your folder structure
+import React from "react";
+import myGif from "../assets/images/abc.gif"; // Adjust the path based on your folder structure
 
 const MyGifComponent: React.FC = () => {
   return (

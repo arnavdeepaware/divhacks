@@ -1,88 +1,45 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Left Sidebar: Reminder Widgets */
+.reminder-widgets {
+  width: 20%;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-body {
-    font-family: 'Lora', Arial;
-    background-color: #004d4d; /* Dark teal background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+#reminderList {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    text-align: center;
-    padding: 20px;
-    background-color: #003333; /* Darker teal for container */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.reminder-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0.5rem;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #66b3ff; /* Light blue for headings */
+/* Right Sidebar: Skills Status */
+.skills-status {
+  width: 20%;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.boxes {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px; /* Added gap for spacing */
+.skills-section h4 {
+  margin-top: 0;
 }
 
-.box {
-    background-color: #003333; /* Darker teal for boxes */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px); /* Dynamic width with gap consideration */
-    padding: 20px;
-    text-align: left;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added hover effect */
+.skills-section ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.box:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-.box h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #ffffff; /* White for box headings */
-}
-
-#steps-content, #todo-content, #resources-content {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #99cccc; /* Light teal for content text */
-}
-
-.box p {
-    margin-bottom: 10px;
-}
-
-.box a {
-    color: #66b3ff; /* Light blue for links */
-    text-decoration: none;
-}
-
-.box a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .boxes {
-        flex-direction: column;
-    }
-
-    .box {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+.skills-section ul li {
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
