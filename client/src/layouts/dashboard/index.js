@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -11,27 +11,41 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Projects from "layouts/dashboard/components/Projects";
-import MDTypography from "components/MDTypography"; // Ensure this path is correct
-import Skills from "./skill/skills"; // Adjust this path if needed
+// import MDTypography from "components/MDTypography";
+// import Skills from "./skill/skills";
 
-//User ID
 // Assuming you have the user ID (retrieved from login or another API)
-const userId = "6701c7ebd50e34892d86e167"; // Example user ID
+const userId = "6701a55d9bce0a4e5bce57cd"; // Example user ID
+
+// Store the user ID in localStorage
+localStorage.setItem("userId", userId);
 
 // Or store in sessionStorage if you only need it for the session
 sessionStorage.setItem("userId", userId);
 
-
-
 function Dashboard() {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [skill, setSkill] = useState("");
   const [completionDate, setCompletionDate] = useState("");
   const [timeToComplete, setTimeToComplete] = useState("");
   const [skills, setSkills] = useState([]);
+
+  // Fetch roadmaps from the backend when the component mounts
+  useEffect(() => {
+    const userId = sessionStorage.getItem("userId"); // Retrieve the user ID from localStorage
+
+    if (userId) {
+      fetch(`/api/users/${userId}/roadmaps`)
+        .then((response) => response.json())
+        .then((data) => {
+          setSkills(data); // Update the state with fetched roadmaps/skills
+        })
+        .catch((error) => console.error("Error fetching roadmaps:", error));
+    }
+  }, []); // The empty array ensures this effect runs only once, when the component mounts
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -144,6 +158,7 @@ function Dashboard() {
             </Button>
           </Grid>
         </Grid>
+
         <MDBox py={7}>
           <Grid container spacing={4}>
             {skills.map((skillObj, index) => (

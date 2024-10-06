@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Skill Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="page-title">Learn X in Y</h1>
+        <div class="boxes">
+            <div class="box">
+                <h2>Steps to Learn</h2>
+                <div id="steps-content">
+                    <!-- Content from LLM goes here -->
+                    <p>1. Understand the basics of JavaScript.</p>
+                    <p>2. Practice with simple projects.</p>
+                    <p>3. Explore advanced concepts.</p>
+                </div>
+            </div>
+            <div class="box">
+                <h2>To-Do</h2>
+                <div id="todo-content">
+                    <!-- Content from LLM goes here -->
+                    <p>Complete Chapter 1 of JavaScript Basics.</p>
+                    <p>Build a simple to-do list app.</p>
+                </div>
+            </div>
+            <div class="box">
+                <h2>Resources</h2>
+                <div id="resources-content">
+                    <!-- Content from LLM goes here -->
+                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs</a></p>
+                    <p><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script2.js"></script>
+    <script>
+        // You can dynamically update X and Y using JavaScript
+        const skill = "JavaScript";
+        const time = "30 days";
+        
+        // Update the title based on user input
+        document.getElementById('page-title').innerText = `Learn ${skill} in ${time}`;
+    </script>
+</body>
+</html>

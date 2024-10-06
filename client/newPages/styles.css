@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', Arial;
+    background-color: #004d4d; /* Dark teal background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 20px;
+    background-color: #003333; /* Darker teal for container */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #66b3ff; /* Light blue for headings */
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Added gap for spacing */
+}
+
+.box {
+    background-color: #003333; /* Darker teal for boxes */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px); /* Dynamic width with gap consideration */
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added hover effect */
+}
+
+.box:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffffff; /* White for box headings */
+}
+
+#steps-content, #todo-content, #resources-content {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #99cccc; /* Light teal for content text */
+}
+
+.box p {
+    margin-bottom: 10px;
+}
+
+.box a {
+    color: #66b3ff; /* Light blue for links */
+    text-decoration: none;
+}
+
+.box a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .boxes {
+        flex-direction: column;
+    }
+
+    .box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
