@@ -1,0 +1,14 @@
+.skills-box,
+.recommended-skills-box {
+  background-color: #f5f5f5; /* Light grey background */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  margin: 10px 0; /* Space between boxes */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.skills-box h4,
+.recommended-skills-box h4 {
+  margin-bottom: 15px; /* Space below heading */
+}
