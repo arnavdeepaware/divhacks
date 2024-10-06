@@ -27,6 +27,12 @@ router.post('/add/:userId', async (req, res) => {
         }
 
         user.roadmaps.push(savedRoadmap._id);
+
+        // Add skill to user's skillsets if not already present
+        if (!user.skillsets.includes(skill)) {
+            user.skillsets.push(skill);
+        }
+        
         await user.save();
 
         res.status(200).json('Roadmap added and associated with user successfully!');
