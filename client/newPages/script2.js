@@ -1,9 +1,7 @@
 // script.js
-// const id = "6701c0699503cd48c6962dc6";
-// Function to fetch roadmap data from the API by ID
 async function fetchRoadmapData(id) {
     try {
-        const response = await fetch(`https://localhost:5000/roadmaps/${id}`);
+        const response = await fetch(`http://localhost:5000/roadmaps/${id}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -16,49 +14,49 @@ async function fetchRoadmapData(id) {
 
 // Function to update page content
 function updatePageContent(data) {
-    // Assuming the API returns an object with steps, todo, and resources
     const stepsContent = document.getElementById('steps-content');
     const todoContent = document.getElementById('todo-content');
     const resourcesContent = document.getElementById('resources-content');
+
+    // Update the title based on the skill and time from the API response
+    document.getElementById('page-title').innerText = `Learn ${data.skill} by ${new Date(data.timeBy).toLocaleDateString()}`;
 
     // Clear existing content
     stepsContent.innerHTML = '';
     todoContent.innerHTML = '';
     resourcesContent.innerHTML = '';
 
-    // Populate Steps to Learn
-    data.steps.forEach(step => {
-        const stepElement = document.createElement('p');
-        stepElement.innerText = step;
-        stepsContent.appendChild(stepElement);
-    });
+    // Assuming the API returns an object with instructions
+    data.instructions.forEach(instruction => {
+        // Populate Steps to Learn
+        instruction.step.forEach(step => {
+            const stepElement = document.createElement('p');
+            stepElement.innerText = step;
+            stepsContent.appendChild(stepElement);
+        });
 
-    // Populate To-Do
-    data.todo.forEach(todo => {
-        const todoElement = document.createElement('p');
-        todoElement.innerText = todo;
-        todoContent.appendChild(todoElement);
-    });
+        // Populate To-Do
+        instruction.todo.forEach(todo => {
+            const todoElement = document.createElement('p');
+            todoElement.innerText = todo;
+            todoContent.appendChild(todoElement);
+        });
 
-    // Populate Resources
-    data.resources.forEach(resource => {
-        const resourceElement = document.createElement('p');
-        const linkElement = document.createElement('a');
-        linkElement.href = resource.link;
-        linkElement.innerText = resource.name;
-        linkElement.target = "_blank"; // Open in new tab
-        resourceElement.appendChild(linkElement);
-        resourcesContent.appendChild(resourceElement);
+        // Populate Resources
+        instruction.resources.forEach(resource => {
+            const resourceElement = document.createElement('p');
+            const linkElement = document.createElement('a');
+            linkElement.href = resource; // Use the URL directly from the resources array
+            linkElement.innerText = resource; // Set the link text as the resource URL
+            linkElement.target = "_blank"; // Open in new tab
+            resourceElement.appendChild(linkElement);
+            resourcesContent.appendChild(resourceElement);
+        });
     });
 }
 
-// You can dynamically update X and Y using JavaScript
-const roadmapId = "6701c0699503cd48c6962dc6"; // Replace with the actual roadmap ID
-
-// Update the title based on user input
-document.getElementById('page-title').innerText = `Roadmap for ID: ${roadmapId}`;
-
-// Fetch the roadmap data when the page loads
+// Call the fetch function when the page loads
 window.onload = () => {
+    const roadmapId = "6701ca88f4e0a52078317b63"; // Use the actual roadmap ID here
     fetchRoadmapData(roadmapId);
 };
